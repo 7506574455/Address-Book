@@ -1,46 +1,63 @@
 package addressbook;
+	  
+import java.util.ArrayList;
+import java.util.Scanner;
 
-	import java.util.Scanner;
+/**
+ * Getting input from user and set that input in the constructor
+ * And adding contact to address book
+ */
+public class AddressBookSystem {
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
 
-	/*
-	 * Getting input from user and set that input in the constructor
-	 */
-	public class AddressBookSystem {
-	    String firstName, lastName, address, city, state, email;
-	    long phoneNumber, zipCode;
+    public static void main(String[] args) {
 
-	    public void AddressBookSystem(String firstName, String lastName, String address, String city, String state, String email, long phoneNumber, long zipCode) {
-	        this.firstName = firstName;
-	        this.lastName = lastName;
-	        this.address = address;
-	        this.city = city;
-	        this.state = state;
-	        this.email = email;
-	        this.phoneNumber = phoneNumber;
-	        this.zipCode = zipCode;
-	    }
+        Contact contact = new Contact();
 
-	    public static void main(String[] args) {
-	        Scanner scanner = new Scanner(System.in);
-	        System.out.print("Enter first name: ");
-	        String firstName = scanner.next();
-	        System.out.print("Enter last name: ");
-	        String lastName = scanner.next();
-	        System.out.print("Enter address: ");
-	        String address = scanner.next();
-	        System.out.print("Enter city: ");
-	        String city = scanner.next();
-	        System.out.print("Enter state: ");
-	        String state = scanner.next();
-	        System.out.print("Enter zip: ");
-	        long zip = scanner.nextLong();
-	        System.out.print("Enter phone no: ");
-	        long phNumber = scanner.nextLong();
-	        System.out.print("Enter email: ");
-	        String email = scanner.next();
+        // adding contact to the address book
+        addContact(contact, contactArrayList);
 
-	        AddressBookSystem addressBookSystem = new AddressBookSystem(firstName, lastName, address, city, state, email, phNumber, zip);
+    }
 
-	    }
-	}
+    public static void addContact(Contact contact, ArrayList<Contact> contactArrayList) {
+        System.out.print("Enter first name: ");
+        String firstName = scanner.next();
+        contact.setFirstName(firstName);
 
+        System.out.print("Enter last name: ");
+        String lastName = scanner.next();
+        contact.setLastName(lastName);
+
+        System.out.print("Enter address: ");
+        String address = scanner.next();
+        contact.setAddress(address);
+
+        System.out.print("Enter city: ");
+        String city = scanner.next();
+        contact.setCity(city);
+
+        System.out.print("Enter state: ");
+        String state = scanner.next();
+        contact.setState(state);
+
+        System.out.print("Enter zip: ");
+        long zip = scanner.nextLong();
+        contact.setZipCode(zip);
+
+        System.out.print("Enter phone no: ");
+        long phNumber = scanner.nextLong();
+        contact.setPhoneNumber(phNumber);
+
+        System.out.print("Enter email: ");
+        String email = scanner.next();
+        contact.setEmail(email);
+
+        contactArrayList.add(contact);
+
+        for (Contact c: contactArrayList) {
+            System.out.println(c.getFirstName() + " " + c.getLastName() + " " + c.getAddress() + " " + c.getCity() + " " + c.getState() + " "  + c.getZipCode()
+                    + " " + c.getPhoneNumber() + " " + c.getEmail());
+        }
+    }
+}
