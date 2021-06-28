@@ -1,5 +1,3 @@
-package addressbook;
-
 public class Contact {
     String firstName, lastName, address, city, state, email;
     long phoneNumber, zipCode;
