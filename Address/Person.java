@@ -1,7 +1,7 @@
 package addressbook;
 
 import java.util.List;
-          //class created
+
 public class Person {
 
 	public String firstName;
@@ -87,5 +87,4 @@ public class Person {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
 				+ ", state=" + state + ", pincode=" + zip + ", mobileNo=" + mobileNo + "]" + "\n";
 	}
-
 }
